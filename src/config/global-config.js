@@ -8,63 +8,63 @@ const globalConfig = {
 	// This are the chat bubbles that will be displayed in the chat
 	CHAT_MESSAGES: [],
 	// This are the labels for the chat button and input
-	CHAT_BUTTON_LABEL_TEXT: "Ask Support",
-	CHAT_CANCEL_BUTTON_LABEL_TEXT: "Cancel Generation",
-	CHAT_VOICE_BUTTON_LABEL_TEXT: "Voice input",
-	CHAT_VOICE_REC_BUTTON_LABEL_TEXT: "Listening to voice input",
+	CHAT_BUTTON_LABEL_TEXT: "Ask for Health Advice",
+	CHAT_CANCEL_BUTTON_LABEL_TEXT: "Cancel Response",
+	CHAT_VOICE_BUTTON_LABEL_TEXT: "Voice Input",
+	CHAT_VOICE_REC_BUTTON_LABEL_TEXT: "Listening...",
 	CHAT_INPUT_PLACEHOLDER:
-		'Type your question, eg. "How do I get information about my prescribed medications?"',
-	USER_IS_BOT: "Support Assistant",
-	RESET_BUTTON_LABEL_TEXT: "X",
+		'Type your health question, e.g. "What are some tips for a balanced diet?"',
+	USER_IS_BOT: "Healthy Living Advisor",
+	RESET_BUTTON_LABEL_TEXT: "Reset",
 	RESET_BUTTON_TITLE_TEXT: "Reset current question",
-	RESET_CHAT_BUTTON_TITLE: "Reset chat",
+	RESET_CHAT_BUTTON_TITLE: "Reset chat session",
 	// Copy response to clipboard
-	COPY_RESPONSE_BUTTON_LABEL_TEXT: "Copy Response",
-	COPIED_SUCCESSFULLY_MESSAGE: "Response copied!",
+	COPY_RESPONSE_BUTTON_LABEL_TEXT: "Copy Advice",
+	COPIED_SUCCESSFULLY_MESSAGE: "Advice copied!",
 	// Follow up questions text
-	FOLLOW_UP_QUESTIONS_LABEL_TEXT: "You can also ask...",
-	SHOW_THOUGH_PROCESS_BUTTON_LABEL_TEXT: "Show thought process",
-	HIDE_THOUGH_PROCESS_BUTTON_LABEL_TEXT: "Hide thought process",
+	FOLLOW_UP_QUESTIONS_LABEL_TEXT: "You can also ask about...",
+	SHOW_THOUGH_PROCESS_BUTTON_LABEL_TEXT: "Show reasoning",
+	HIDE_THOUGH_PROCESS_BUTTON_LABEL_TEXT: "Hide reasoning",
 	LOADING_INDICATOR_TEXT:
-		"Please wait. We are searching and generating an answer...",
-	LOADING_TEXT: "Loading...",
+		"Please wait. Your healthy living advice is being prepared...",
+	LOADING_TEXT: "Loading advice...",
 	// API ERROR HANDLING IN UI
 	API_ERROR_MESSAGE:
-		"Sorry, we are having some problems. Please try again later.",
+		"Sorry, we are having some issues. Please try again later.",
 	INVALID_REQUEST_ERROR:
-		"Unable to generate answer for this query. Please modify your question and try again.",
+		"Unable to generate advice for this query. Please rephrase your question and try again.",
 	// Config pertaining the response format
-	THOUGHT_PROCESS_LABEL: "Thought Process",
-	SUPPORT_CONTEXT_LABEL: "Support Context",
+	THOUGHT_PROCESS_LABEL: "Reasoning",
+	SUPPORT_CONTEXT_LABEL: "Health Context",
 	CITATIONS_LABEL: "Learn More:",
-	CITATIONS_TAB_LABEL: "Citations",
+	CITATIONS_TAB_LABEL: "References",
 	// Custom Branding
 	IS_CUSTOM_BRANDING: true,
 	// Custom Branding details
 	// All these should come from persistence config
 	BRANDING_URL:
 		"https://www.logopeople.in/wp-content/uploads/2023/09/hospital-logo2.jpg",
-	BRANDING_LOGO_ALT: "doctris",
-	BRANDING_HEADLINE: "Welcome to the support cosultant of doctris",
-	SHOW_CHAT_HISTORY_LABEL: "Show Chat History",
-	HIDE_CHAT_HISTORY_LABEL: "Hide Chat History",
+	BRANDING_LOGO_ALT: "Healthy Living Advisor Logo",
+	BRANDING_HEADLINE: "Welcome to the Healthy Living Advisor Chat!",
+	SHOW_CHAT_HISTORY_LABEL: "Show Health History",
+	HIDE_CHAT_HISTORY_LABEL: "Hide Health History",
 	CHAT_MAX_COUNT_TAG: "{MAX_CHAT_HISTORY}",
-	CHAT_HISTORY_FOOTER_TEXT: "Showing past {MAX_CHAT_HISTORY} conversations",
+	CHAT_HISTORY_FOOTER_TEXT: "Showing past {MAX_CHAT_HISTORY} health conversations",
 };
 
 const teaserListTexts = {
-	TEASER_CTA_LABEL: "Ask now",
-	HEADING_CHAT: "Chat with our support team",
-	HEADING_ASK: "Ask a question",
+	TEASER_CTA_LABEL: "Ask for Health Advice",
+	HEADING_CHAT: "Chat with the Healthy Living Expert",
+	HEADING_ASK: "Ask a health question",
 	DEFAULT_PROMPTS: [
 		{
-			description: "How do I schedule an appointment with a specialist?",
+			description: "How can I improve my sleep quality?",
 		},
 		{
-			description: "Who do I contact in case of a medical emergency?",
+			description: "What are effective ways to manage stress?",
 		},
 		{
-			description: "What are the visiting hours for patients?",
+			description: "How much exercise should I get each week?",
 		},
 	],
 };

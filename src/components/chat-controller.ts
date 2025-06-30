@@ -144,15 +144,10 @@ export class ChatController implements ReactiveController {
 		};
 
 		// Main logic for displaying the response
-		if (isUserMessage || typeof response === "string") {
-			// console.log(
-			// 	"processResponse: treating as user message or string",
-			// 	response
-			// );
-			await updateChatWithMessageOrChunk(response as string, false);
-		} else if (useStream) {
-			// console.log("processResponse: treating as stream", response);
+		if (useStream && response instanceof Response && response.body) {
 			await updateChatWithMessageOrChunk(response, true);
+		} else if (isUserMessage || typeof response === "string") {
+			await updateChatWithMessageOrChunk(response as string, false);
 		} else {
 			// Debug logs to inspect the response structure
 			console.log("BotResponse received:", response);
@@ -255,7 +250,7 @@ export class ChatController implements ReactiveController {
 				} else if (typeof error_ === "string") {
 					errorMessage = error_;
 				}
-				
+
 				const chatError = {
 					message:
 						error?.code === 400
