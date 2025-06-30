@@ -85,14 +85,14 @@ export class ChatController implements ReactiveController {
 		isUserMessage: boolean = false,
 		useStream: boolean = false
 	) {
-		console.log(
-			"processResponse called with:",
-			response,
-			"isUserMessage:",
-			isUserMessage,
-			"useStream:",
-			useStream
-		);
+		// console.log(
+		// 	"processResponse called with:",
+		// 	response,
+		// 	"isUserMessage:",
+		// 	isUserMessage,
+		// 	"useStream:",
+		// 	useStream
+		// );
 		const citations: Citation[] = [];
 		const followingSteps: string[] = [];
 		const followupQuestions: string[] = [];
@@ -101,7 +101,7 @@ export class ChatController implements ReactiveController {
 		let dataPoints: string[] | undefined;
 
 		const updateChatWithMessageOrChunk = async (
-			message: string,
+			message: string | BotResponse,
 			chunked: boolean
 		) => {
 			console.log(
@@ -114,13 +114,13 @@ export class ChatController implements ReactiveController {
 				id: crypto.randomUUID(),
 				text: [
 					{
-						value: chunked ? "" : message,
+						value: chunked ? "" : (message as string),
 						followingSteps,
 					},
 				],
 				followupQuestions,
 				citations: [...new Set(citations)],
-				timestamp,
+				timestamp: timestamp,
 				isUserMessage,
 				thoughts,
 				dataPoints,
@@ -145,14 +145,14 @@ export class ChatController implements ReactiveController {
 
 		// Main logic for displaying the response
 		if (isUserMessage || typeof response === "string") {
-			console.log(
-				"processResponse: treating as user message or string",
-				response
-			);
+			// console.log(
+			// 	"processResponse: treating as user message or string",
+			// 	response
+			// );
 			await updateChatWithMessageOrChunk(response as string, false);
 		} else if (useStream) {
-			console.log("processResponse: treating as stream", response);
-			await updateChatWithMessageOrChunk(response as unknown as string, true);
+			// console.log("processResponse: treating as stream", response);
+			await updateChatWithMessageOrChunk(response, true);
 		} else {
 			// Debug logs to inspect the response structure
 			console.log("BotResponse received:", response);
@@ -232,16 +232,30 @@ export class ChatController implements ReactiveController {
 				this.isAwaitingResponse = true;
 				this.processingMessage = undefined;
 
+				// Disable streaming for now to simplify the response handling
+				const responseOptions = { ...httpOptions, stream: false };
+
 				const response = (await getAPIResponse(
 					requestOptions,
-					httpOptions
+					responseOptions
 				)) as BotResponse;
-				console.log("getAPIResponse returned:", response);
 				this.isAwaitingResponse = false;
 
 				await this.processResponse(response, false, httpOptions.stream);
 			} catch (error_: any) {
 				const error = error_ as ChatResponseError;
+
+				// Extract error message from different possible locations
+				let errorMessage = "An unexpected error occurred. Please try again.";
+
+				if (error?.message) {
+					errorMessage = error.message;
+				} else if (error_?.response?.data?.error?.message) {
+					errorMessage = error_.response.data.error.message;
+				} else if (typeof error_ === "string") {
+					errorMessage = error_;
+				}
+				
 				const chatError = {
 					message:
 						error?.code === 400

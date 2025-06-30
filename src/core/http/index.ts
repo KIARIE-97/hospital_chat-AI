@@ -2,9 +2,9 @@ import { ChatResponseError } from '../../utils/index.js';
 
 export async function callHttpApi(
   { question, type, approach, overrides, messages }: ChatRequestOptions,
-  { method,/* url,*/ stream, signal }: ChatHttpOptions,
+  { method,url, stream, signal }: ChatHttpOptions,
 ) {
-  return await fetch(`http://localhost:3001/${type}`, {
+  return await fetch(`${url}/${type}`, {
 		method: method,
 		headers: {
 			"Content-Type": "application/json",
@@ -13,10 +13,10 @@ export async function callHttpApi(
 		body: JSON.stringify({
 			messages: [
 				...(messages ?? []),
-				{
-					content: "You are a health consultant.",
-					role: "system",
-				},
+				// {
+				// 	content: "You are a health consultant.",
+				// 	role: "system",
+				// },
 				{
 					content: question,
 					role: "user",
@@ -47,9 +47,9 @@ console.log(
   // TODO: we should just use the value from httpOptions.stream
   const streamResponse = requestOptions.type === 'ask' ? false : httpOptions.stream;
   console.log('Stream response:', streamResponse);
-  // if (streamResponse) {
-  //   return response;
-  // }
+  if (streamResponse) {
+    return response;
+  }
   console.log('Response received:', response);
   
   const parsedResponse: BotResponse = await response.json();
