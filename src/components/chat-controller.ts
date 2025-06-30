@@ -230,6 +230,12 @@ export class ChatController implements ReactiveController {
 				// Disable streaming for now to simplify the response handling
 				const responseOptions = { ...httpOptions, stream: false };
 
+				// const deploymentName = "Phi-3.5-vision-instruct"; // <-- replace with your actual deployment name
+				// requestOptions.overrides = {
+				// 	...(requestOptions.overrides || {}),
+				// 	azureOpenAIApiDeploymentName: deploymentName,
+				// };
+
 				const response = (await getAPIResponse(
 					requestOptions,
 					responseOptions

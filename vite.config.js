@@ -2,7 +2,9 @@ import { resolve } from 'node:path';
 // eslint-disable-next-line n/no-unpublished-import
 import { defineConfig, loadEnv } from 'vite';
 
-process.env.VITE_SEARCH_API_URI = process.env.BACKEND_URI ?? 'http://localhost:3001';
+process.env.VITE_SEARCH_API_URI =
+	process.env.BACKEND_URI ??
+	"https://webapi-production-972d.up.railway.app";
 process.env.VITE_IS_LIB = process.env.IS_LIB ?? 'false';
 console.log(`Using search API base URL: "${process.env.VITE_SEARCH_API_URI}". This will only work if you started a local API in that port. Please set BACKEND_URI to change it.`);
 
@@ -18,16 +20,16 @@ const config = {
 const distConfig = isLib ? config : undefined;
 
 export default defineConfig({
-  build: {
-    emptyOutDir: true,
-    lib: distConfig,
-  },
-  server: {
-    proxy: {
-      '/ask': 'http://127.0.0.1:3001',
-      '/chat': 'http://127.0.0.1:3001',
-      '/content': 'http://127.0.0.1:3001',
-    },
-  },
+	build: {
+		emptyOutDir: true,
+		lib: distConfig,
+	},
+	server: {
+		proxy: {
+			"/ask": "https://webapi-production-972d.up.railway.app",
+			"/chat": "https://webapi-production-972d.up.railway.app",
+			"/content": "https://webapi-production-972d.up.railway.app",
+		},
+	},
 });
 

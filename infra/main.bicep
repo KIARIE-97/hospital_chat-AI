@@ -58,6 +58,7 @@ module chatFrontendApp './core/host/staticwebapp.bicep' = {
   }
 }
 
+
 // Monitor application with Azure Monitor
 module monitoring './core/monitor/monitoring.bicep' = {
   name: 'monitoring'

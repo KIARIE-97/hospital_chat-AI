@@ -1,30 +1,3 @@
-# Healthy Living Advisor Chat Application 🩺💬
-
-Welcome to the Healthy Living Advisor Chat Application! This application provides users with a conversational interface to receive guidance, tips, and answers related to healthy living, nutrition, fitness, and wellness. Built on a robust and modern frontend stack, it leverages AI-powered chat capabilities to deliver personalized and reliable advice.
-
-## Overview 🌱
-
-The Healthy Living Advisor Chat Application is designed to:
-- Offer real-time, AI-driven responses to user queries about healthy living.
-- Provide a user-friendly, accessible chat interface suitable for all audiences.
-- Integrate seamlessly with backend AI services for advanced conversational experiences.
-- Support customization for branding, prompts, and API endpoints.
-
-## Key Features ✨
-- **Conversational AI:** Engage in natural language conversations to get advice on nutrition, exercise, mental health, and more.
-- **Modern UI:** Responsive and intuitive chat interface built with Lit and Web Components.
-- **Configurable:** Easily adjust prompts, labels, and API endpoints to fit your use case.
-- **Extensible:** Designed for integration with various backend AI services following the AI Chat Protocol.
-- **Secure:** Supports deployment with authentication and secure backend connectivity.
-
-## Use Cases 🏃‍♂️🥗🧘‍♀️
-- Personal wellness coaching
-- Nutrition and diet Q&A
-- Fitness and exercise recommendations
-- General healthy lifestyle advice
-
----
-
 # Azure OpenAI Chat Frontend
 
 A classic chat user interface that can be used to send messages to an OpenAI API and receive responses. 
