@@ -82,10 +82,10 @@ const requestOptions = {
 };
 
 const chatHttpOptions = {
-  // API URL for development purposes
-  url: 'http://localhost:3001',
-  method: 'POST',
-  stream: true,
+	// API URL for development purposes
+	url: "https://webapi-production-972d.up.railway.app",
+	method: "POST",
+	stream: true,
 };
 
 const MAX_CHAT_HISTORY = 5;

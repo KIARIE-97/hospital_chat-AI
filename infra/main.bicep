@@ -11,7 +11,7 @@ param location string
 
 param resourceGroupName string = ''
 
-param chatFrontendAppName string = 'chatfrontendapp'
+param chatFrontendAppName string = 'advisoryfrontendapp'
 
 param logAnalyticsName string = ''
 param applicationInsightsName string = ''
@@ -29,7 +29,7 @@ param chatFrontendAppLocation string
 param useApplicationInsights bool = false
 
 // Allow to override the default backend
-param backendUri string = ''
+param backendUri string = 'https://webapi-production-972d.up.railway.app'
 
 param isLib string = ''
 
@@ -49,7 +49,7 @@ resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
 
 // The application frontend
 module chatFrontendApp './core/host/staticwebapp.bicep' = {
-  name: 'chatfrontendapp'
+  name: 'advisoryfrontendapp'
   scope: resourceGroup
   params: {
     name: !empty(chatFrontendAppName) ? chatFrontendAppName : '${abbrs.webStaticSites}web-${resourceToken}'
